@@ -1,0 +1,70 @@
+{
+  "globalcomponents": {
+    "header": {
+      "companyName": "Interview Test",
+      "logo": "https://via.placeholder.com/140x100"
+    },
+    "footer": {
+      "footerLogo": "https://via.placeholder.com/100x100",
+      "copyrightText": "Genuine ©"
+    }
+  },
+  "pages": [
+    {
+      "pageUrl": "/",
+      "pageTitle": "Home Page",
+      "bodyText": "<p>Vestibulum aliquam, ipsum eget consectetur viverra, dui orci vestibulum magna, vestibulum dapibus mi nisl at magna. Suspendisse sollicitudin mi a volutpat ultricies. Donec fringilla sapien vitae mauris maximus, vitae sollicitudin nunc porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur mollis vehicula urna, nec tempor nibh hendrerit non. Maecenas viverra, justo et malesuada finibus, odio felis malesuada erat, vitae accumsan velit eros in libero. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed quis tempor libero. Nullam in pulvinar metus. Nullam dictum quam eu velit hendrerit, eget ornare turpis eleifend.</p>",
+      "subcontent": [
+        {
+          "contentType": "wysiwyg",
+          "richText": "<h3>Title</h3><p>Donec non odio ut nunc auctor interdum.</p>"
+        },
+        {
+          "contentType": "image",
+          "imagePath": "https://via.placeholder.com/300x100"
+        },
+        {
+          "contentType": "blockquote",
+          "quote": "I am giving you a quotation.",
+          "quoteSource": "Tim Dufour"
+        }
+      ]
+    },
+    {
+      "pageUrl": "/inner-page-1",
+      "pageTitle": "Inner Page 1",
+      "bodyText": "<p>Maecenas bibendum posuere tortor vestibulum posuere. Donec non odio ut nunc auctor interdum. In hac habitasse platea dictumst. Praesent at maximus dolor. Cras molestie nibh turpis. Duis in iaculis magna, in pulvinar elit. Integer dapibus volutpat purus, bibendum auctor ante vehicula ac.</p>",
+      "subcontent": [
+        {
+          "contentType": "wysiwyg",
+          "richText": "<h3>Title</h3><p>Donec non odio ut nunc auctor interdum.</p>"
+        },
+        {
+          "contentType": "blockquote",
+          "quote": "I am giving you a quotation.",
+          "quoteSource": "Matt Schroer"
+        }
+      ]
+    },
+    {
+      "pageUrl": "/inner-page-2",
+      "pageTitle": "Inner Page 2",
+      "bodyText": "<p>Fusce sapien ante, ornare sit amet nibh ut, porta ultrices lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse in orci odio. Cras at nisl in magna tempor rhoncus. Suspendisse a dui purus. Quisque leo dolor, ornare in enim a, dictum vulputate libero. Etiam vel dictum ligula. Duis congue dolor ante, cursus commodo massa luctus tincidunt.</p>",
+      "subcontent": [
+        {
+          "contentType": "image",
+          "imagePath": "https://via.placeholder.com/300x100"
+        },
+        {
+          "contentType": "wysiwyg",
+          "richText": "<h3>Title</h3><p>Donec non odio ut nunc auctor interdum.</p>"
+        },
+        {
+          "contentType": "link",
+          "linkHref": "https://www.google.com",
+          "linkTitle": "For more info, visit us online."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/cmsData.json"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <div class="logo">
+            </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home Page</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="InnerPageOne">inner-page-1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="InnerPageTwo">inner-page-2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <p class="navbar-brand">
+                    <div class="companyName"></div>
+                </p>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <div style="float:left">
+                <div class="copyrightText">
+
+                </div>
+
+            </div>
+            <div style="float:right">
+                <div class="footerLogo">
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.ajax({
+            type: 'get',
+            url: '/Home/GetJSONDetails',
+            success: function (data) {
+                $('.companyName').html(data.data.globalcomponents.header.companyName);
+                $('.copyrightText').html(data.data.globalcomponents.footer.copyrightText);
+                var footerImage = " <img src=" + data.data.globalcomponents.footer.footerLogo + " alt='logo' />";
+                var logoImage = " <img src=" + data.data.globalcomponents.header.logo + " alt='logo' />";
+                $('.footerLogo').html(footerImage);
+                $('.logo').html(logoImage);
+            },
+            error: function () {                
+            }
+        });
+    });
+
+</script>

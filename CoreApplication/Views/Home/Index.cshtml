@@ -1,0 +1,70 @@
+﻿@using CoreApplication.Models
+@model List<Page>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script>tinymce.init({ selector: 'textarea' });</script>
+
+<div class="text-center">
+    <div class="row">
+
+        <div class="col-8" style="height:350px;overflow-x:auto;width:700px;">
+
+            @foreach (var content in Model)
+            {
+                <div class="row">
+                    <div>
+                        <h1>@content.pageTitle </h1><br />
+                        
+                        <ul> 
+                            <li>
+                                @Html.Raw(System.Net.WebUtility.HtmlDecode(content.bodyText))                              
+                            </li>
+                        </ul>                         
+                    </div>
+                </div>
+               
+                foreach (var subcontent in content.subcontent)
+                {
+                   
+                    if (subcontent.contentType == "wysiwyg")
+                    {
+                        <ul><li><textarea id="richtext">
+                        <p> @subcontent.richText</p>
+                        </textarea></li></ul>                        
+                        <br />
+                    }
+                    else if (subcontent.contentType == "image")
+                    {
+                       <ul><li><img src="@Url.Content(subcontent.imagePath)" /></li></ul> 
+                       <br />
+                    }
+                    else if (subcontent.contentType == "blockquote")
+
+                    {
+                        <ul><li>
+                            <blockquote>
+                           <p> Quote:   @subcontent.quote</p>
+                           <p>QuoteSource:  @subcontent.quoteSource</p>
+                            </blockquote>
+                        </li></ul>
+
+                    }                    
+                    else if(subcontent.contentType == "link")                   
+                    {
+                        <ul>
+                            <li>
+                        
+                                <a href="@Url.Content(subcontent.linkHref)"> @subcontent.linkTitle</a>  
+                            </li>
+                        </ul>
+                     }                       
+           
+
+                }
+            
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+﻿@using CoreApplication.Models
+@{
+    ViewData["Title"] = "Contact";
+}
+<h3> Contact Form</h3>
+
+First Name: <input type="text" id="firstname" />
+Last Name: <input type="text" id="lastname" />
+Email: <input type="text" id="email" />
+Phone: <input type="text" id="phone" />
+
+<button id="btnSubmit">Submit</button>
+<script>
+    $('#btnSubmit').click(() => {
+        $.ajax({
+            type: 'post',
+            url: '/home/writejson',
+            data: { firstname: $('#firstname').val(), lastname: $('#lastname').val(), email: $('#email').val(), phone:$('#phone').val() },
+            success: function () {
+
+            },
+            error: function () {
+
+            }
+        })
+    })
+</script>
